@@ -9,6 +9,8 @@ const PushNotifiee: FC = () => {
     PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
     useEffect(() => {
+
+        // Foreground message handler
         const unsubscribe = messaging().onMessage(async remoteMessage => {
             console.log('A new FCM message arrived!', JSON.stringify(remoteMessage));
             showNotification(remoteMessage.notification!);
